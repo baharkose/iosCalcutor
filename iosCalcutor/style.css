@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+}
+body{
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 40%;
+    top: 40%;
+    transform: scale(1.4);
+}
+
+.phone-container{
+    position: absolute;
+    background-color: black;
+    color: white;
+    width: 270px;
+    height: 474px;
+    top: 106px;
+    left: 70px;
+
+    border-bottom-left-radius: 40px ;
+    border-bottom-right-radius: 40px ;
+    
+}
+
+.number-container{
+    margin: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(5, 50px);
+    position: relative;
+    top: 160px;
+    left: 5px;
+    gap: 10px;
+
+}
+
+.number{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: pink; */
+    border-radius: 50%;
+    background-color: #575757;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    
+}
+.number:hover{
+    opacity: 0.8;
+}
+.number17{
+    grid-area : 5/1/6/3;
+    border-radius: 60px;
+    
+}
+
+.number1,
+.number2,
+.number3{
+    background-color: #a5a5a5;
+    color: black;
+}
+
+.number4,
+.number8,
+.number12,
+.number16,
+.number19{
+    background-color: #ff9f0a;
+}
+
+.result{
+    /* background-color: red; */
+    position:absolute;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0px 20px auto;
+    z-index: 999;
+    top: 210px;
+    left: 150px;
+    width: 150px;
+    height: 50px;
+    font-size: 3rem;
+    color: #fff;
+
+}
