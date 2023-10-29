@@ -182,3 +182,17 @@ const percentFunc = () => {
     }
 }
 
+const pointerFunc = (e) => {
+    if(currentDisplay.innerHTML === "0"){
+        currentDisplay.innerHTML += e.target.innerHTML;
+    }
+    else{
+        if(currentDisplay.innerHTML.includes(".")){
+            currentDisplay = currentDisplay;
+        }
+        else{
+            currentDisplay.innerHTML += e.target.innerHTML
+        }
+    }
+}
+
