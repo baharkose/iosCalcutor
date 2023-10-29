@@ -45,9 +45,6 @@ container.addEventListener("click", (e) =>{
         else if (e.target.classList.contains("point")) {
             pointerFunc(e);
         } 
-        else if (e.target.classList.contains("operator")) {
-            operatorFunc(e);
-        }
         else if (e.target.classList.contains("operator")){
             console.log("clicked", e.target);
             operatorFunc(e);
@@ -170,4 +167,18 @@ const equalFunc = () => {
         secondValue = "";
 
 }    
+
+const percentFunc = () => {
+    if(currentDisplay.innerHTML === "0.000"){
+        currentDisplay.innerHTML = "0";
+    }
+    else{
+        if(Number(currentDisplay.innerHTML)%100){
+            currentDisplay.innerHTML = (Number(currentDisplay.innerHTML) /100).toFixed(3);
+        }
+        else{
+            currentDisplay.innerHTML = Number(currentDisplay.innerHTML)/100
+        }
+    }
+}
 
