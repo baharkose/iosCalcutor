@@ -29,7 +29,7 @@ container.addEventListener("click", (e) =>{
     {
         if(e.target.classList.contains("rakam")){
             // if it is clicked any number, add number func is worked
-            console.log("clicked rakam");
+            console.log("clicked rakam", e.target.innerHTML);
             addNumber(e);
         }
         else if(e.target.innerHTML === "AC"){
@@ -65,12 +65,13 @@ container.addEventListener("click", (e) =>{
 //ADD NUMBER FUNCTION
 
 const addNumber = (e) =>{
-    console.log(e);
+
     if(currentDisplay.innerHTML === "0"){
         // if current display is 0 added e.target.innerHTML
         currentDisplay.innerHTML = e.target.innerHTML;
-        console.log(currentDisplay);
-        clearButton.innerHTML = "C"
+        console.log(currentDisplay.innerHTML);
+        clearButton.innerHTML = "C";
+      
     }
     else{
         if(counter > 8){
@@ -146,7 +147,7 @@ const operatorFunc = (e) =>{
     operator = e.target.innerHTML;
     displayFunc(e);
     counter = 0;
-
+    clearButton.innerHTML = "AC";
     if(!secondValue) return;
     equalFunc();
     totalDisplay.innerHTML =  tempTotal + operator;
@@ -192,7 +193,7 @@ const equalFunc = () => {
             case "/":
                 tempTotal = Number(firstValue) / Number(secondValue);
                 break;
-            case "*":
+            case "x":
                 tempTotal = Number(firstValue) * Number(secondValue);
                 break;
         
