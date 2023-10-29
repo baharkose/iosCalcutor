@@ -79,11 +79,14 @@ body{
     background-color: #ff9f0a;
 }
 
-.result{
-    /* background-color: red; */
+.display{
+    /* background-color: red;
+    border: 1px solid red; */
     position:absolute;
     display: flex;
-    justify-content: flex-end;
+    justify-content:flex-end;
+    align-items:flex-end;
+    flex-direction: column;
     margin: 0px 20px auto;
     z-index: 999;
     top: 210px;
@@ -94,3 +97,5 @@ body{
     color: #fff;
 
 }
+
+
