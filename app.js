@@ -35,14 +35,25 @@ container.addEventListener("click", (e) =>{
         else if(e.target.innerHTML === "AC"){
             allClear();
         }
-        
+
         else if(e.target.classList.contains("minus-plus")){
             currentDisplay.innerHTML = -1 * Number(currentDisplay.innerHTML)
         }
-
+        else if (e.target.classList.contains("percent")){
+            percentFunc();
+        }
+        else if (e.target.classList.contains("point")) {
+            pointerFunc(e);
+        } 
+        else if (e.target.classList.contains("operator")) {
+            operatorFunc(e);
+        }
         else if (e.target.classList.contains("operator")){
             console.log("clicked", e.target);
             operatorFunc(e);
+        }
+        else if (e.target.classList.contains("equal")) {
+            equalFunc();
         }
         else if(e.target.innerHTML === "C"){
             clear();
@@ -52,7 +63,6 @@ container.addEventListener("click", (e) =>{
     }
 
 });
-
 
 
 //ADD NUMBER FUNCTION
@@ -66,9 +76,14 @@ const addNumber = (e) =>{
         clearButton.innerHTML = "C"
     }
     else{
+        if(counter > 8){
+            currentDisplay.innerHTML = currentDisplay.innerHTML;
+        }
+        else{
         // if there is a number, add next to other number 
         currentDisplay.innerHTML += e.target.innerHTML
-        console.log(currentDisplay);
+        counter++;
+    }
     }
 }
 
@@ -96,6 +111,7 @@ const operatorFunc = (e) =>{
     //makes displaying and calculating steps
     operator = e.target.innerHTML;
     displayFunc(e);
+    counter = 0;
 
     if(!secondValue) return;
     equalFunc();
