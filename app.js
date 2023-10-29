@@ -6,7 +6,7 @@ const clearButton = document.querySelector(".ac");
 
 
 let operator = ""; // added operator variable due to calc operation
-let result = "";  // added result variable due to calc operation
+// let result = "";  // added result variable due to calc operation
 let firstValue = ""; // added firstValue variable due to calc operation
 let secondValue = ""; // added secondValue variable due to calc operation
 let tempTotal = ""; // added temporaryTotal variable due to calc operation
@@ -78,11 +78,11 @@ const addNumber = (e) =>{
         }
         else{
         // if there is a number, add next to other number 
-        currentDisplay.innerHTML += e.target.innerHTML
+        currentDisplay.innerHTML += e.target.innerHTML;
         counter++;
     }
     }
-}
+};
 
 
 
@@ -95,10 +95,47 @@ const allClear = () =>{
     counter = 0;
 }
 
+
+
+
 const clear = () =>{
     currentDisplay.innerHTML = "0";
     counter = 0;
     clearButton.innerHTML = "AC";
+}
+
+
+
+
+const percentFunc = () => {
+    if(currentDisplay.innerHTML === "0.000"){
+        currentDisplay.innerHTML = "0";
+    }
+    else{
+        if(Number(currentDisplay.innerHTML) % 100){
+            currentDisplay.innerHTML = (Number(currentDisplay.innerHTML) / 100).toFixed(3);
+        }
+        else{
+            currentDisplay.innerHTML = Number(currentDisplay.innerHTML)/100
+        }
+    }
+};
+
+
+
+
+const pointerFunc = (e) => {
+    if(currentDisplay.innerHTML === "0"){
+        currentDisplay.innerHTML += e.target.innerHTML;
+    }
+    else{
+        if(currentDisplay.innerHTML.includes(".")){
+            currentDisplay = currentDisplay;
+        }
+        else{
+            currentDisplay.innerHTML += e.target.innerHTML;
+        }
+    }
 }
 
 
@@ -142,19 +179,21 @@ const displayFunc = (e) =>{
 
 const equalFunc = () => {
     if(!firstValue) return;
+
     displayFunc();
+
     switch (operator) {
             case "+":
-                result = Number(firstValue) + Number(secondValue);
+                tempTotal = Number(firstValue) + Number(secondValue);
                 break;
             case "-":
-                result = Number(firstValue) - Number(secondValue);
+                tempTotal = Number(firstValue) - Number(secondValue);
                 break;
             case "/":
-                result = Number(firstValue) / Number(secondValue);
+                tempTotal = Number(firstValue) / Number(secondValue);
                 break;
             case "*":
-                result = Number(firstValue) * Number(secondValue);
+                tempTotal = Number(firstValue) * Number(secondValue);
                 break;
         
             default:
@@ -165,34 +204,9 @@ const equalFunc = () => {
         totalDisplay.innerHTML = firstValue;
         currentDisplay.innerHTML = "0";
         secondValue = "";
+        clearButton.innerHTML = "AC";
 
 }    
 
-const percentFunc = () => {
-    if(currentDisplay.innerHTML === "0.000"){
-        currentDisplay.innerHTML = "0";
-    }
-    else{
-        if(Number(currentDisplay.innerHTML)%100){
-            currentDisplay.innerHTML = (Number(currentDisplay.innerHTML) /100).toFixed(3);
-        }
-        else{
-            currentDisplay.innerHTML = Number(currentDisplay.innerHTML)/100
-        }
-    }
-}
 
-const pointerFunc = (e) => {
-    if(currentDisplay.innerHTML === "0"){
-        currentDisplay.innerHTML += e.target.innerHTML;
-    }
-    else{
-        if(currentDisplay.innerHTML.includes(".")){
-            currentDisplay = currentDisplay;
-        }
-        else{
-            currentDisplay.innerHTML += e.target.innerHTML
-        }
-    }
-}
 
